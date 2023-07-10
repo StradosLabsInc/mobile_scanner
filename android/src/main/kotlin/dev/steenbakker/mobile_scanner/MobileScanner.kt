@@ -166,6 +166,9 @@ class MobileScanner(
             }
             cameraProvider!!.unbindAll()
             textureEntry = textureRegistry.createSurfaceTexture()
+            if (textureEntry == null) {
+                throw CameraError()
+            }
 
             // Preview
             val surfaceProvider = Preview.SurfaceProvider { request ->
